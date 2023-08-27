@@ -73,6 +73,8 @@ def _get_node_downloader():
             _arch = 'glibc-2.23'
     else:
         _arch = platform.machine()
+	if _arch == 'aarch64':
+		_arch = 'arm64'
 
     if _arch.startswith('glibc'):
         node_legacy_version = 'v18.12.1'  # We might not upgrade node version for legacy builds every time.
